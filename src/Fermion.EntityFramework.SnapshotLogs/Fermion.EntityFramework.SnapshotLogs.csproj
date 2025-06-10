@@ -5,11 +5,19 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Fermion.EntityFramework.SnapshotLogs</PackageId>
-        <Version>0.0.1</Version>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.1.0</Version>
         <Authors>Samet Karademir</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryUrl>https://github.com/sametkarademir/fermion-entityframework-snapshotlogs</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/sametkarademir/fermion-entityframework-snapshotlogs</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/sametkarademir/fermion-entityframework-snapshotlogs.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <Deterministic>true</Deterministic>
     </PropertyGroup>
 
     <ItemGroup>
