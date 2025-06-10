@@ -28,4 +28,20 @@ public class SnapshotAssemblyController(ISnapshotAssemblyAppService snapshotAsse
         var result = await snapshotAssemblyAppService.GetPageableAndFilterAsync(request, cancellationToken);
         return Ok(result);
     }
+
+    [HttpDelete("cleanup")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> CleanupOldSnapshotAssembliesAsync(
+        [FromQuery] DateTime olderThan,
+        CancellationToken cancellationToken = default)
+    {
+        if (olderThan == default)
+        {
+            return BadRequest("Invalid date provided.");
+        }
+
+        await snapshotAssemblyAppService.CleanupOldSnapshotAssemblyAsync(olderThan, cancellationToken);
+
+        return NoContent();
+    }
 }

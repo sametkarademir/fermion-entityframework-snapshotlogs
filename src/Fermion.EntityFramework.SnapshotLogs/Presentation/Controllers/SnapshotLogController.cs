@@ -28,4 +28,20 @@ public class SnapshotLogController(ISnapshotLogAppService snapshotLogAppService)
         var result = await snapshotLogAppService.GetPageableAndFilterAsync(request, cancellationToken);
         return Ok(result);
     }
+
+    [HttpDelete("cleanup")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> CleanupOldSnapshotLogsAsync(
+        [FromQuery] DateTime olderThan,
+        CancellationToken cancellationToken = default)
+    {
+        if (olderThan == default)
+        {
+            return BadRequest("Invalid date provided.");
+        }
+
+        await snapshotLogAppService.CleanupOldSnapshotLogAsync(olderThan, cancellationToken);
+
+        return NoContent();
+    }
 }

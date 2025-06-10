@@ -28,4 +28,20 @@ public class SnapshotAppSettingController(ISnapshotAppSettingAppService snapshot
         var result = await snapshotAppSettingAppService.GetPageableAndFilterAsync(request, cancellationToken);
         return Ok(result);
     }
+
+    [HttpDelete("cleanup")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> CleanupOldSnapshotAppSettingsAsync(
+        [FromQuery] DateTime olderThan,
+        CancellationToken cancellationToken = default)
+    {
+        if (olderThan == default)
+        {
+            return BadRequest("Invalid date provided.");
+        }
+
+        var result = await snapshotAppSettingAppService.CleanupOldSnapshotAppSettingAsync(olderThan, cancellationToken);
+
+        return NoContent();
+    }
 }

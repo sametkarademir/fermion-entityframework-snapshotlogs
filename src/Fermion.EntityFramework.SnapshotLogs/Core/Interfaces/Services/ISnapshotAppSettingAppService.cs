@@ -7,5 +7,5 @@ public interface ISnapshotAppSettingAppService
 {
     Task<SnapshotAppSettingResponseDto> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
     Task<PageableResponseDto<SnapshotAppSettingResponseDto>> GetPageableAndFilterAsync(GetListSnapshotAppSettingRequestDto request, CancellationToken cancellationToken = default);
-    Task<int> CleanupOldSnapshotAppSettingsAsync(DateTime olderThan, CancellationToken cancellationToken = default);
+    Task<int> CleanupOldSnapshotAppSettingAsync(DateTime olderThan, CancellationToken cancellationToken = default);
 }

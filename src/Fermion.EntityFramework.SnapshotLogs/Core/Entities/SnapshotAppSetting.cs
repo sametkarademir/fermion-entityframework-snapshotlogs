@@ -11,4 +11,9 @@ public class SnapshotAppSetting : CreationAuditedEntity<Guid>
 
     public Guid SnapshotLogId { get; set; }
     public SnapshotLog? SnapshotLog { get; set; }
+
+    public SnapshotAppSetting() : base(Guid.NewGuid())
+    {
+        CreationTime = DateTime.UtcNow;
+    }
 }

@@ -54,7 +54,7 @@ public class SnapshotLogAppService(
         return new PageableResponseDto<SnapshotLogResponseDto>(matchedSnapshotLogs, result.Meta);
     }
 
-    public async Task<int> CleanupOldSnapshotLogsAsync(DateTime olderThan, CancellationToken cancellationToken = default)
+    public async Task<int> CleanupOldSnapshotLogAsync(DateTime olderThan, CancellationToken cancellationToken = default)
     {
         var queryable = snapshotLogRepository.Query();
         queryable = queryable.Where(a => a.CreationTime < olderThan);

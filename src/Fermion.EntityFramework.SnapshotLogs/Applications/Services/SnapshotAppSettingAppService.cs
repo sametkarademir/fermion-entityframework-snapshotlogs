@@ -49,7 +49,7 @@ public class SnapshotAppSettingAppService(
         return new PageableResponseDto<SnapshotAppSettingResponseDto>(matchedSnapshotAppSettings, result.Meta);
     }
 
-    public async Task<int> CleanupOldSnapshotAppSettingsAsync(DateTime olderThan, CancellationToken cancellationToken = default)
+    public async Task<int> CleanupOldSnapshotAppSettingAsync(DateTime olderThan, CancellationToken cancellationToken = default)
     {
         var queryable = snapshotAppSettingRepository.Query();
         queryable = queryable.Where(a => a.CreationTime < olderThan);
